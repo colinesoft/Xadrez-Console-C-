@@ -10,5 +10,5 @@ namespace Xadrez.JTabuleiro
         Vermelho,
         Verde,
         Cinza
-    }
+    }    
 }

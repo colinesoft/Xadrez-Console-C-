@@ -13,9 +13,40 @@ namespace Xadrez
                 {
                     //Verifica se existe uma peça no x,y
                     if (tabuleiro.Peca(x, y) != null)
-                        Console.Write(tabuleiro.Peca(x, y) + ".");
+                    {
+                        //Define as cores
+                        switch (tabuleiro.Peca(x, y).Cor)
+                        {
+                            case Cor.Preto:
+                                Console.ForegroundColor = ConsoleColor.Black;
+                                break;
+                            case Cor.Azul:
+                                Console.ForegroundColor = ConsoleColor.Blue;
+                                break;
+                            case Cor.Branco:
+                                Console.ForegroundColor = ConsoleColor.White;
+                                break;
+                            case Cor.Cinza:
+                                Console.ForegroundColor = ConsoleColor.Gray;
+                                break;
+                            case Cor.Verde:
+                                Console.ForegroundColor = ConsoleColor.Green;
+                                break;
+                            case Cor.Vermelho:
+                                Console.ForegroundColor = ConsoleColor.Red;
+                                break;
+                            default:
+                                Console.ForegroundColor = ConsoleColor.White;
+                                break;                            
+                        }
+
+                        Console.Write(tabuleiro.Peca(x, y) + " ");
+                    }
                     else
+                    {
+                        Console.ForegroundColor = ConsoleColor.White;
                         Console.Write("- ");
+                    }
                 }
                 Console.WriteLine();
             }

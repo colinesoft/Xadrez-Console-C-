@@ -12,5 +12,10 @@
         }
         public int GetCasasPorColunas => _Colunas;
         public int GetCasasPorLinhas => _Linhas;
+        public void InserirPeca(Posicao posicao, Peca peca)
+        {
+            Pecas[posicao.Coluna, posicao.Linha] = peca;
+            peca.Posicao = posicao;
+        }
     }
 }
