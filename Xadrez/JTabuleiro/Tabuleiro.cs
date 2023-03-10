@@ -34,7 +34,6 @@
         /// <param name="peca"></param>
         public void InserirPeca(Posicao posicao, Peca peca)
         {
-
             ValidaPosicao(posicao);
             Pecas[posicao.Coluna, posicao.Linha] = peca;
             peca.Posicao = posicao;

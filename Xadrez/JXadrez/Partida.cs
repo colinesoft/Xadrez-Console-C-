@@ -54,22 +54,22 @@ namespace Xadrez.JXadrez
             Tabuleiro.InserirPeca(new Posicao('H', 7), new Peao(Cor.Branco));
 
 
-            Tabuleiro.InserirPeca(new Posicao('A', 1), new Torre(Cor.Amarelo));
-            Tabuleiro.InserirPeca(new Posicao('B', 1), new Cavalo(Cor.Amarelo));
-            Tabuleiro.InserirPeca(new Posicao('C', 1), new Bispo(Cor.Amarelo));
-            Tabuleiro.InserirPeca(new Posicao('D', 1), new Rei(Cor.Amarelo));
-            Tabuleiro.InserirPeca(new Posicao('E', 1), new Dama(Cor.Amarelo));
-            Tabuleiro.InserirPeca(new Posicao('F', 1), new Bispo(Cor.Amarelo));
-            Tabuleiro.InserirPeca(new Posicao('G', 1), new Cavalo(Cor.Amarelo));
-            Tabuleiro.InserirPeca(new Posicao('H', 1), new Torre(Cor.Amarelo));
-            Tabuleiro.InserirPeca(new Posicao('A', 2), new Peao(Cor.Amarelo));
-            Tabuleiro.InserirPeca(new Posicao('B', 2), new Peao(Cor.Amarelo));
-            Tabuleiro.InserirPeca(new Posicao('C', 2), new Peao(Cor.Amarelo));
-            Tabuleiro.InserirPeca(new Posicao('D', 2), new Peao(Cor.Amarelo));
-            Tabuleiro.InserirPeca(new Posicao('E', 2), new Peao(Cor.Amarelo));
-            Tabuleiro.InserirPeca(new Posicao('F', 2), new Peao(Cor.Amarelo));
-            Tabuleiro.InserirPeca(new Posicao('G', 2), new Peao(Cor.Amarelo));
-            Tabuleiro.InserirPeca(new Posicao('H', 2), new Peao(Cor.Amarelo));
+            Tabuleiro.InserirPeca(new Posicao('A', 1), new Torre(Cor.Preto));
+            Tabuleiro.InserirPeca(new Posicao('B', 1), new Cavalo(Cor.Preto));
+            Tabuleiro.InserirPeca(new Posicao('C', 1), new Bispo(Cor.Preto));
+            Tabuleiro.InserirPeca(new Posicao('D', 1), new Rei(Cor.Preto));
+            Tabuleiro.InserirPeca(new Posicao('E', 1), new Dama(Cor.Preto));
+            Tabuleiro.InserirPeca(new Posicao('F', 1), new Bispo(Cor.Preto));
+            Tabuleiro.InserirPeca(new Posicao('G', 1), new Cavalo(Cor.Preto));
+            Tabuleiro.InserirPeca(new Posicao('H', 1), new Torre(Cor.Preto));
+            Tabuleiro.InserirPeca(new Posicao('A', 2), new Peao(Cor.Preto));
+            Tabuleiro.InserirPeca(new Posicao('B', 2), new Peao(Cor.Preto));
+            Tabuleiro.InserirPeca(new Posicao('C', 2), new Peao(Cor.Preto));
+            Tabuleiro.InserirPeca(new Posicao('D', 2), new Peao(Cor.Preto));
+            Tabuleiro.InserirPeca(new Posicao('E', 2), new Peao(Cor.Preto));
+            Tabuleiro.InserirPeca(new Posicao('F', 2), new Peao(Cor.Preto));
+            Tabuleiro.InserirPeca(new Posicao('G', 2), new Peao(Cor.Preto));
+            Tabuleiro.InserirPeca(new Posicao('H', 2), new Peao(Cor.Preto));
         }
 
     }

@@ -13,14 +13,13 @@ namespace Xadrez
             {
                 //Impressão do número das linhas do maior para o menor
                 Console.Write(tabuleiro.ObterTamanhoLateralDoTabuleiro - y + " ");
-
                 for (int x = 0; x < tabuleiro.ObterTamanhoLateralDoTabuleiro; x++)
                 {
                     if(y == 0)
                     {
                         legenda += $" {(char)('A' + x)} ";
                     }
-
+                    AlteraCorFundo(new Posicao(x, y));
                     //Verifica se existe uma peça no x,y
                     if (tabuleiro.Peca(x, y) != null)
                     {
@@ -29,8 +28,9 @@ namespace Xadrez
                         Console.Write(" ");
                     }
                     else
-                        Console.Write(" - ");
+                        Console.Write("   ");
                 }
+                Console.BackgroundColor = ConsoleColor.Black;
                 Console.WriteLine();
             }
             Console.WriteLine(legenda);
@@ -76,6 +76,16 @@ namespace Xadrez
         {
             var obtido = Console.ReadLine();
             return new Posicao(obtido[0], int.Parse(obtido[1] + ""));
+        }
+
+        private static void AlteraCorFundo(Posicao posicao)
+        {
+            if((posicao.Coluna + posicao.Linha) % 2 == 0)
+                Console.BackgroundColor = ConsoleColor.Cyan;
+            else
+                Console.BackgroundColor = ConsoleColor.Gray;
+
+
         }
     }
 }
