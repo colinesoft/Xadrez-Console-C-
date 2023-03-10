@@ -7,27 +7,29 @@ namespace Xadrez
     {
         public static void ImprimirTabuleiro(Tabuleiro tabuleiro)
         {
+            Console.Clear();
             string legenda = "  ";
-            for(int y = 0; y < tabuleiro.GetCasasPorLinhas; y++)
+            for(int y = 0; y < tabuleiro.ObterTamanhoLateralDoTabuleiro; y++)
             {
                 //Impressão do número das linhas do maior para o menor
-                Console.Write(tabuleiro.GetCasasPorLinhas - y + " ");
+                Console.Write(tabuleiro.ObterTamanhoLateralDoTabuleiro - y + " ");
 
-                for (int x = 0; x < tabuleiro.GetCasasPorColunas; x++)
+                for (int x = 0; x < tabuleiro.ObterTamanhoLateralDoTabuleiro; x++)
                 {
                     if(y == 0)
                     {
-                        legenda += $"{(char)('A' + x)} ";
+                        legenda += $" {(char)('A' + x)} ";
                     }
 
                     //Verifica se existe uma peça no x,y
                     if (tabuleiro.Peca(x, y) != null)
                     {
+                        Console.Write(" ");
                         ImprimirPeca(tabuleiro.Peca(x, y));
                         Console.Write(" ");
                     }
                     else
-                        Console.Write("- ");
+                        Console.Write(" - ");
                 }
                 Console.WriteLine();
             }
@@ -40,6 +42,9 @@ namespace Xadrez
             //Define as cores
             switch (peca.Cor)
             {
+                case Cor.Amarelo:
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    break;
                 case Cor.Preto:
                     Console.ForegroundColor = ConsoleColor.Black;
                     break;
@@ -65,6 +70,12 @@ namespace Xadrez
 
             Console.Write(peca.ToString());
             Console.ForegroundColor = corAtual;
+        }
+
+        public static Posicao ObterPosicao()
+        {
+            var obtido = Console.ReadLine();
+            return new Posicao(obtido[0], int.Parse(obtido[1] + ""));
         }
     }
 }

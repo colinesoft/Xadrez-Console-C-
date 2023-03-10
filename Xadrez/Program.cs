@@ -12,13 +12,25 @@ namespace Xadrez
 
             try
             {
-                //Posiciona Peças para teste
-                tabuleiro.InserirPeca(new Posicao(0, 0), new Torre(Cor.Branco));
-                tabuleiro.InserirPeca(new Posicao(1, 1), new Rei(Cor.Verde));
-                tabuleiro.InserirPeca(new Posicao(2, 7), new Dama(Cor.Vermelho));
-                tabuleiro.InserirPeca(new Posicao(2, 7), new Dama(Cor.Branco));
+                Partida partida = new Partida();
 
-                Tela.ImprimirTabuleiro(tabuleiro);
+                while (!partida.Encerrada)
+                {
+                    Tela.ImprimirTabuleiro(partida.Tabuleiro);
+
+                    Console.WriteLine();
+                    Console.Write("Origem: ");
+                    Posicao origem = Tela.ObterPosicao();
+                    Console.Write("Destino: ");
+                    Posicao destino = Tela.ObterPosicao();
+
+                    partida.MovimentaPeca(origem, destino);
+                }
+
+
+                Console.ReadKey();
+                Tela.ImprimirTabuleiro(partida.Tabuleiro);
+                Console.ReadKey();
             }
             catch (TabuleiroExceptions e)
             {

@@ -1,10 +1,8 @@
 ﻿namespace Xadrez.JTabuleiro
 {
-    public class Tabuleiro
+    public class Tabuleiro: BaseTamanho
     {
-        private const int _Colunas = 8;
-        private const int _Linhas = _Colunas;
-        private Peca[,] Pecas = new Peca[_Colunas, _Linhas];
+        private Peca[,] Pecas = new Peca[Tamanho, Tamanho];
 
         /// <summary>
         /// Obtem uma peça de acordo com a coluna, linha
@@ -14,6 +12,7 @@
         /// <returns>Peca</returns>
         public Peca Peca(int coluna, int linha)
         {
+            PosicaoEhValida(new Posicao(coluna, linha));
             return Pecas[coluna, linha];
         }
 
@@ -24,18 +23,9 @@
         /// <returns>Peca</returns>
         public Peca Peca(Posicao posicao)
         {
+            PosicaoEhValida(posicao);
             return this.Peca(posicao.Coluna, posicao.Linha);
         }
-
-        /// <summary>
-        /// Obtem a quantidade de Colunas do Tabuleiro
-        /// </summary>
-        public int GetCasasPorColunas => _Colunas;
-
-        /// <summary>
-        /// Obtem a quantidade de Linhas do Tabuleiro
-        /// </summary>
-        public int GetCasasPorLinhas => _Linhas;
 
         /// <summary>
         /// Marca a posicao com uma determinada peça
@@ -50,16 +40,31 @@
             peca.Posicao = posicao;
         }
 
+        /// <summary>
+        /// Método utilizado para remover uma peça do tabuleiro na posição informada
+        /// </summary>
+        /// <param name="posicao"></param>
+        public Peca RemoverPecaDaPosicao(Posicao posicao)
+        {
+            PosicaoEhValida(posicao);
+            var aux = Peca(posicao);
+            if (aux == null)
+                return null;
+
+            aux.Posicao = null;
+            Pecas[posicao.Coluna, posicao.Linha] = null;
+            return aux;
+        }
         #region PRIVATES
         //Testa se posicao é válida
         private bool PosicaoEhValida(Posicao pos)
         {
-            return (pos.Linha < GetCasasPorLinhas && pos.Linha >= 0) && (pos.Coluna < GetCasasPorColunas && pos.Coluna >= 0);
+            return (pos.Linha < ObterTamanhoLateralDoTabuleiro && pos.Linha >= 0) && (pos.Coluna < ObterTamanhoLateralDoTabuleiro && pos.Coluna >= 0);
         }
         private bool PosicaoEstaVazia(Posicao pos)
         {
-            Peca peca = Peca(pos.Coluna, pos.Linha);
-            return peca == null;
+            PosicaoEhValida(pos);
+            return Pecas[pos.Coluna, pos.Linha] == null;
         }
 
         private void ValidaPosicao(Posicao posicao)
